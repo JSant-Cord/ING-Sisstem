@@ -105,7 +105,6 @@ public class GestionReportes {
             Reporte r = reportesActivos[i];
             System.out.println("[" + (i + 1) + "] " + r.toString());
 
-            // Conteo por categoría
             if (r.getCodigo_categoria().equalsIgnoreCase("CAT-01")) totalHumo++;
             else if (r.getCodigo_categoria().equalsIgnoreCase("CAT-02")) totalFoco++;
             else if (r.getCodigo_categoria().equalsIgnoreCase("CAT-03")) totalQuema++;
