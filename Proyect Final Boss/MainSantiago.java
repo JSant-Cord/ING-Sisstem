@@ -1,6 +1,3 @@
-/**
- * Clase principal para probar la ejecución y sustentar ante el profesor.
- */
 public class MainSantiago {
     public static void main(String[] args) {
         System.out.println("=================================================");
