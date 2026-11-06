@@ -15,7 +15,7 @@ public class GestionReportes {
         this.reportesActivos = new Reporte[MAX_REPORTES];
         this.contador = 0;
         this.pilaDeshacer = new PilaReportes();
-        cargarDesdeArchivo(); // Persistencia de entrada
+        cargarDesdeArchivo(); 
     }
 
     public String registrarReporte(String codigo, String codigoCat, String fecha, 
