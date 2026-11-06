@@ -78,11 +78,11 @@ public class GestionReportes {
             return "¡IMPEDIMENTO: El reporte " + codigo + " no existe en los registros activos! (CA-04.2)";
         }
 
-        // 1. Apilar en la pila propia para permitir Deshacer
+        // 1. Apilar Deshacer
         Reporte eliminado = reportesActivos[pos];
         pilaDeshacer.apilar(eliminado);
 
-        // 2. Desplazamiento a la izquierda para no dejar casillas nulas en el arreglo
+        // izquierda 
         for (int i = pos; i < contador - 1; i++) {
             reportesActivos[i] = reportesActivos[i + 1];
         }
@@ -128,7 +128,7 @@ public class GestionReportes {
             return "¡IMPEDIMENTO: No hay espacio en el arreglo activo para desapilar el reporte!";
         }
 
-        // Desapilar el último elemento que entró a la pila
+        // Desapilar 
         Reporte desapilado = pilaDeshacer.desapilar();
         reportesActivos[contador] = desapilado;
         contador++;
@@ -137,7 +137,7 @@ public class GestionReportes {
         return "¡ÉXITO: Reporte " + desapilado.getCodigo_reporte() + " recuperado de la Pila y restituido al arreglo activo! (CA-06.1)";
     }
 
-    // Método auxiliar de búsqueda en el arreglo con contador
+    // búsqueda
     private int buscarIndice(String codigo) {
         for (int i = 0; i < contador; i++) {
             if (reportesActivos[i].getCodigo_reporte().equalsIgnoreCase(codigo)) {
@@ -147,7 +147,7 @@ public class GestionReportes {
         return -1;
     }
 
-    // Persistencia: Guardar datos en archivo reportes.txt
+    // reportes.txt
     private void guardarEnArchivo() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(ARCHIVO))) {
             for (int i = 0; i < contador; i++) {
@@ -158,7 +158,7 @@ public class GestionReportes {
         }
     }
 
-    // Persistencia: Cargar datos desde archivo reportes.txt
+    // reportes.txt
     private void cargarDesdeArchivo() {
         File f = new File(ARCHIVO);
         if (!f.exists()) return;
