@@ -1,0 +1,3 @@
+REP-002;CAT-03;2026-11-05;6.251;-75.57;Quema de pastizal
+REP-001;CAT-01;2026-11-05;6.2442;-75.5812;Humo en Cerro Pan de Azucar
+REP-006;CAT-01;2026-11-06;7.555;-4521523.0;muy duro
