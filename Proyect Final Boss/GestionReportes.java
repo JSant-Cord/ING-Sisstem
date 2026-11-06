@@ -19,9 +19,6 @@ public class GestionReportes {
         cargarDesdeArchivo(); // Persistencia de entrada
     }
 
-    // =========================================================================
-    // HU-01: CREAR REPORTE (RF-01, RF-02, RF-03 / CA-01.1, CA-01.2, CA-01.3)
-    // =========================================================================
     public String registrarReporte(String codigo, String codigoCat, String fecha, 
                                    double lat, double lon, String desc, boolean categoriaValida) {
         if (buscarIndice(codigo) != -1) {
@@ -41,9 +38,6 @@ public class GestionReportes {
         return "¡ÉXITO: Reporte " + codigo + " guardado correctamente en el arreglo activo! (CA-01.1)";
     }
 
-    // =========================================================================
-    // HU-02: LEER / CONSULTAR REPORTE POR CÓDIGO (RF-04, RF-05, RF-06)
-    // =========================================================================
     public String consultarReporte(String codigo) {
         if (codigo == null || codigo.trim().isEmpty()) {
             return "¡AVISO: Debe ingresar un código de reporte para realizar la búsqueda! (CA-02.3)";
@@ -55,9 +49,6 @@ public class GestionReportes {
         return "¡ÉXITO (CA-02.1)! Datos del reporte:\n" + reportesActivos[pos].toString();
     }
 
-    // =========================================================================
-    // HU-03: ACTUALIZAR REPORTE (RF-07, RF-08, RF-09 / CA-03.1, CA-03.2, CA-03.3)
-    // =========================================================================
     public String actualizarReporte(String codigoOriginal, String codigoIntentoCambio, 
                                      String nuevaDesc, double nuevaLat, double nuevaLon) {
         if (!codigoOriginal.equals(codigoIntentoCambio)) {
@@ -78,9 +69,6 @@ public class GestionReportes {
         return "¡ÉXITO: Reporte " + codigoOriginal + " actualizado en memoria! (CA-03.1)";
     }
 
-    // =========================================================================
-    // HU-04: ELIMINAR REPORTE (RF-10, RF-11, RF-12 / CA-04.1, CA-04.2, CA-04.3)
-    // =========================================================================
     public String eliminarReporte(String codigo) {
         if (contador == 0) {
             return "¡RECHAZO: El arreglo de reportes activos está totalmente vacío! (CA-04.3)";
@@ -105,9 +93,6 @@ public class GestionReportes {
         return "¡ÉXITO: Reporte " + codigo + " eliminado del arreglo (desplazado a la izquierda) y apilado en la Pila! (CA-04.1)";
     }
 
-    // =========================================================================
-    // HU-05: LISTAR Y TOTALIZAR REPORTES (RF-13, RF-14, RF-15 / CA-05.1, CA-05.2)
-    // =========================================================================
     public void listarReportes() {
         if (contador == 0) {
             System.out.println("¡AVISO: No hay reportes activos registrados para listar! (CA-05.2)");
@@ -135,9 +120,6 @@ public class GestionReportes {
                            " | Quema (CAT-03): " + totalQuema + " | Incendio (CAT-04): " + totalIncendio);
     }
 
-    // =========================================================================
-    // HU-06: DESHACER ÚLTIMA ELIMINACIÓN POR PILA (RF-16, RF-17, RF-18)
-    // =========================================================================
     public String deshacerUltimaEliminacion() {
         if (pilaDeshacer.estaVacia()) {
             return "¡IMPEDIMENTO: La pila de eliminaciones está vacía. No hay nada que deshacer! (CA-06.2)";
