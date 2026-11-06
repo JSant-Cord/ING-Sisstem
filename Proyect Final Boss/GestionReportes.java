@@ -2,7 +2,6 @@ import java.io.*;
 import java.util.Scanner;
 
 /**
- * Lógica del Arreglo con Contador, operaciones CRUDL y Persistencia en reportes.txt
  * Programado por Santiago Córdoba Camacho.
  */
 public class GestionReportes {
