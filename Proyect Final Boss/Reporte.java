@@ -4,7 +4,6 @@
  * Entidad: Reporte de Incendio Forestal
  */
 public class Reporte {
-    // Atributos privados según el Diccionario de Datos (Sección 7)
     private String codigo_reporte;
     private String codigo_categoria;
     private String fecha_registro;
@@ -12,7 +11,6 @@ public class Reporte {
     private double longitud;
     private String descripcion;
 
-    // Constructor de la entidad
     public Reporte(String codigo_reporte, String codigo_categoria, String fecha_registro, 
                    double latitud, double longitud, String descripcion) {
         this.codigo_reporte = codigo_reporte;
@@ -42,7 +40,7 @@ public class Reporte {
     public String getDescripcion() { return descripcion; }
     public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 
-    // Formato delimitado por punto y coma para guardar en reportes.txt
+    // reportes.txt
     public String aFormatoArchivo() {
         return codigo_reporte + ";" + codigo_categoria + ";" + fecha_registro + ";" + 
                latitud + ";" + longitud + ";" + descripcion;
