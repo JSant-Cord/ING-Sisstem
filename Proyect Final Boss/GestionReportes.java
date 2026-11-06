@@ -8,8 +8,8 @@ public class GestionReportes {
     private Reporte[] reportesActivos;
     private int contador;
     private PilaReportes pilaDeshacer;
-    private static final int MAX_REPORTES = 100;
-    private static final String ARCHIVO = "reportes.txt";
+    private static int MAX_REPORTES = 100;
+    private static String ARCHIVO = "reportes.txt";
 
     public GestionReportes() {
         this.reportesActivos = new Reporte[MAX_REPORTES];
