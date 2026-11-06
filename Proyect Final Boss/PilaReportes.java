@@ -1,7 +1,3 @@
-/**
- * Pila estática (LIFO) construida a mano con un arreglo fijo.
- * No utiliza java.util.Stack ni ninguna colección de Java.
- */
 public class PilaReportes {
     private Reporte[] elementos;
     private int tope;
@@ -9,7 +5,7 @@ public class PilaReportes {
 
     public PilaReportes() {
         this.elementos = new Reporte[CAPACIDAD];
-        this.tope = -1; // Indica que la pila está vacía
+        this.tope = -1; 
     }
 
     public boolean estaVacia() {
@@ -20,7 +16,7 @@ public class PilaReportes {
         return tope == CAPACIDAD - 1;
     }
 
-    // Apila el reporte eliminado (HU-04)
+    // Apila
     public boolean apilar(Reporte reporte) {
         if (estaLlena()) {
             return false;
@@ -30,7 +26,6 @@ public class PilaReportes {
         return true;
     }
 
-    // Saca y retorna el reporte de la cima de la pila (HU-06)
     public Reporte desapilar() {
         if (estaVacia()) {
             return null;
