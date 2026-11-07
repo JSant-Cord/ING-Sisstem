@@ -1,7 +1,4 @@
-/**
- * Pila estática (LIFO) construida a mano para la Entidad Categoria.
- * Sin utilizar java.util.Stack ni colecciones de la biblioteca.
- */
+
 public class PilaCategorias {
     private Categoria[] elementos;
     private int tope;
