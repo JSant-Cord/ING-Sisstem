@@ -1,12 +1,12 @@
 public class Categoria {
-    // Atributos privados según el Diccionario de Datos (Sección 7)
+    // Atributos privados Diccionario de Datos
     private String codigo_categoria;
     private String nombre_categoria;
     private int nivel_gravedad; // 1 (Muy leve) a 5 (Crítico)
     private String descripcion;
     private boolean estado_activo;
 
-    // Constructor completo
+    // Constructor
     public Categoria(String codigo_categoria, String nombre_categoria, 
                      int nivel_gravedad, String descripcion, boolean estado_activo) {
         this.codigo_categoria = codigo_categoria;
