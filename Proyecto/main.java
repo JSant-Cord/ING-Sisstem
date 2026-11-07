@@ -1,9 +1,4 @@
 import java.util.Scanner;
-
-/**
- * Clase principal para la sustentación - Estudiante B: Juan Esteban Monsalve.
- * Entidad: Categoría de Incidente de Incendio (Arreglo + Pila)
- */
 public class main {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
