@@ -1,0 +1,3 @@
+CAT-01;Incendio;4;Incendio forestal;true
+CAT-03;Incendio;2;Equipos el�ctricos;true
+CAT-02;Humo;3;Casa de incendio;true
