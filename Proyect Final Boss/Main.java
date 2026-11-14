@@ -31,25 +31,82 @@ public class Main { // Clase pública que contiene el método main, el punto de 
 
             switch (opcion) { // Estructura que ejecuta un bloque según el valor de "opcion"
                 case 1: // Si la opción es 1: registrar reporte
-                    System.out.print("Ingrese código del reporte (ej: REP-001): "); // Pide el código del reporte
+                    System.out.print("Ingrese código del reporte (ej: REP-001): ");
                     String cod = teclado.nextLine(); // Lee y guarda el código escrito
-                    System.out.print("Ingrese código de categoría (ej: CAT-01): "); // Pide el código de la categoría
-                    String cat = teclado.nextLine(); // Lee y guarda la categoría
+
+                    System.out.print("Ingrese código de categoría (ej: CAT-1): "); // Pide el código de la categoría
+                    String cat;
+                    // String ejem = "CAT-";
+                    while (true) {
+                        System.out.println("Ingrese codigo de categoria ");
+                        try {
+                             String n = cat = teclado.nextLine().toUpperCase(); // Lee y guarda la categoría
+                            //  System.out.println(n);
+                            //  System.out.println(ejem);
+                            //  System.out.println(n.length());
+                             if (n.length()== 5) {
+                            break;
+                            } else {
+                                System.out.println("Error: Debe empezar con CAT-? (minuscula o mayuscula)");
+                            }
+                        }  catch (Exception e) {
+                            System.out.println("ERROR INGRESE TAL COMO EL EJEMPLO");
+                        }
+                    }
+                    
                     System.out.print("Ingrese fecha (ej: 2026-11-06): "); // Pide la fecha del reporte
                     String fec = teclado.nextLine(); // Lee y guarda la fecha como texto
-                    System.out.print("Ingrese latitud (ej: 6.2442): "); // Pide la latitud
-                    double lat = Double.parseDouble(teclado.nextLine()); // Lee el texto y lo convierte a número decimal
-                    System.out.print("Ingrese longitud (ej: -75.5812): "); // Pide la longitud
-                    double lon = Double.parseDouble(teclado.nextLine()); // Lee el texto y lo convierte a número decimal
-                    System.out.print("Ingrese descripción: "); // Pide la descripción del incidente
-                    String desc = teclado.nextLine(); // Lee y guarda la descripción
+                    System.out.print("Ingrese latitud (ej: 6.2442): ");
+                    double lat;
+                     while (true) {
+                        System.out.println("Ingrese latitud (ej: 6.2442): ");
+                        try {
+                            lat = Double.parseDouble(teclado.nextLine());
 
-                    // Simulación de validación cruzada (CAT-99 no existe)
-                    boolean catExiste = !cat.equalsIgnoreCase("CAT-99"); // true si la categoría NO es "CAT-99" (ignora mayúsculas); simula el catálogo de otra entidad
+                            if (lat >= 0 && lat <= 199) {
+                            break;
+                            } else {
 
-                    String resReg = gestion.registrarReporte(cod, cat, fec, lat, lon, desc, catExiste); // Llama al método que registra y guarda el mensaje de resultado
-                    System.out.println("\n>>> RESULTADO: " + resReg); // Muestra el resultado al usuario
-                    break; // Sale del switch para no ejecutar los otros casos
+                                System.out.println("Error la latitud debe ser entre 0 y 199");
+                            }
+                        } catch (NumberFormatException e) {
+                            System.out.print("Error ingrese un numero mayor a 0");
+                        }
+                     }
+                
+                     System.out.print("Ingrese longitud (ej: -75.5812): "); // Pide la longitud
+                 double lon;
+
+            while (true) {
+                System.out.print("Ingrese longitud (ej: -75.5812): ");
+
+            try {
+                lon = Double.parseDouble(teclado.nextLine());
+
+                if (lon >= -180 && lon <= 180) {
+                break;
+                } else {
+            System.out.println("Error: la longitud debe estar entre -180 y 180.");
+            }
+
+            } catch (NumberFormatException e) {
+         System.out.println("Error: ingrese un número decimal válido.");
+        }
+    }
+
+            // Lee la descripción después de validar la longitud
+                System.out.print("Ingrese descripción: ");
+                String desc = teclado.nextLine();
+
+            // Simulación de validación cruzada (CAT-99 no existe)
+            boolean catExiste = !cat.equalsIgnoreCase("CAT-99");
+
+            // Registra el reporte
+            String resReg = gestion.registrarReporte(
+            cod, cat, fec, lat, lon, desc, catExiste
+            );
+
+            System.out.println("\n>>> RESULTADO: " + resReg); // Sale del switch para no ejecutar los otros casos
 
                 case 2: // Si la opción es 2: consultar reporte
                     System.out.print("Ingrese el código a consultar: "); // Pide el código a buscar
